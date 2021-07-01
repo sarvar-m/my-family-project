@@ -5,7 +5,7 @@ import RandomQuotes from "./utils/RandomQuotes";
 
 function MainBody() {
   return (
-    <div style={{ marginTop: "75px" }}>
+    <div style={{ margin: "40px" }}>
       <Container>
         <Row>
           <Col xs="9">

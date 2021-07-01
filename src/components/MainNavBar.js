@@ -77,7 +77,6 @@ function MainNavBar() {
           </div>
         </div>
       </nav>
-      <footer>Footer</footer>
     </>
   );
 }
