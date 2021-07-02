@@ -1,11 +1,11 @@
 import React from "react";
 import { Container, Row, Col } from "reactstrap";
-import RandomImage from "./RandomImage";
-import RandomQuotes from "./RandomQuotes";
+import RandomImage from "./utils/RandomImage";
+import RandomQuotes from "./utils/RandomQuotes";
 
-function Main() {
+function MainBody() {
   return (
-    <div style={{ marginTop: "75px" }}>
+    <div style={{ margin: "40px" }}>
       <Container>
         <Row>
           <Col xs="9">
@@ -20,4 +20,4 @@ function Main() {
   );
 }
 
-export default Main;
+export default MainBody;
