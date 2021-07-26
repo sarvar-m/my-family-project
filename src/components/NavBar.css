@@ -1,5 +1,5 @@
 .navbar-new {
-  background-color: #1f5156;
+  background-color: #FFFFFF;
   height: 80px;
   display: flex;
   justify-content: center;
@@ -20,7 +20,7 @@
 }
 
 .nav-logo {
-  color: #f5b921;
+  color: #171B27;
   align-items: center;
   margin-left: 20px;
   cursor: pointer;
@@ -37,7 +37,7 @@
 }
 
 .nav-links {
-  color: #fff;
+  color: #0A141F;
   text-decoration: none;
   padding: 0.5rem 1rem;
   height: 100%;
@@ -63,7 +63,7 @@
 
 .nav-item:hover:after {
   width: 100%;
-  background: #ffdd40;
+  background: #6577A4;
 }
 
 .nav-item .active {
