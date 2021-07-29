@@ -57,7 +57,7 @@ function MainNavBar() {
                 className="nav-links"
                 onClick={handleClick}
               >
-                Invite
+              Menu
               </NavLink>
             </li>
             <li className="nav-item">
