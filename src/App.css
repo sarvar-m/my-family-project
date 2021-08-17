@@ -4,12 +4,16 @@
 }
 
 body {
-  background-color: #FFFFFF;
+  background-color: #ffffff;
+}
+
+.me-auto {
+  font-size: large;
 }
 
 .pages {
-  color: #316685;
+  color: #07151d;
   text-align: center;
   font-size: 3.5rem;
-  margin-top: 10%;
+  margin: 100px;
 }
