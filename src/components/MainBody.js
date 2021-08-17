@@ -1,17 +1,20 @@
 import React from "react";
-import { Container, Row, Col } from "reactstrap";
+import { Container, Row, Col } from "react-bootstrap";
 import RandomImage from "./utils/RandomImage";
 import RandomQuotes from "./utils/RandomQuotes";
 
 function MainBody() {
   return (
-    <div style={{ margin: "40px" }}>
+    <div>
       <Container>
         <Row>
-          <Col xs="9">
-            <RandomImage />
+          <RandomImage />
+        </Row>
+        <Row>
+          <Col xs={9}>
+            <h3>Calendar</h3>
           </Col>
-          <Col xs="3">
+          <Col xs={3}>
             <RandomQuotes />
           </Col>
         </Row>

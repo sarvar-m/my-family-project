@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 
-export class Events extends Component {
+class Events extends Component {
   render() {
     return (
-      <div>
+      <div className="pages">
         <h3>Events</h3>
       </div>
     );

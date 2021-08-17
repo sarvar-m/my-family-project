@@ -1,19 +1,20 @@
 import React from "react";
-// import "bootstrap/dist/css/bootstrap.min.css";
-// import "./RandomQuotes.css";
-import { Card, CardTitle, CardText } from "reactstrap";
+import { Card } from "react-bootstrap";
 
 function RandomQuotes() {
   return (
-    <div className="quote">
-      <Card body inverse color="danger">
-        <CardTitle tag="h5">
-          <h4>Random Quotes</h4>
-        </CardTitle>
-        <CardText>
-          "Most things are good, and they are the strongest things; but there "
-          –Walt Disney
-        </CardText>
+    <div>
+      <Card>
+        <Card.Body style={{ backgroundColor: "#dc3545", color: "white" }}>
+          <Card.Title>Random Quotes</Card.Title>
+          <blockquote className="blockquote mb-0">
+            <p>
+              {" "}
+              "Children are the hands by which we take hold of heaven."–Henry
+              Ward Beecher{" "}
+            </p>
+          </blockquote>
+        </Card.Body>
       </Card>
     </div>
   );
