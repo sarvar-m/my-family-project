@@ -100,8 +100,6 @@ const SignUp = () => {
       <h1 className="p-5 text-center my-4">Sign Up</h1>
       {signupForm()}
       <br />
-      <Link className="btn btn-sm btn-outline-danger">Forgot Password</Link>
-      <br />
       <br />
       <p>
         If you already have registered, please <Link to="/login">Log In</Link>{" "}
