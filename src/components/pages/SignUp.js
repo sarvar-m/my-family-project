@@ -104,7 +104,8 @@ const SignUp = () => {
       <br />
       <br />
       <p>
-        If you already have registered, please <Link>Log In</Link> here
+        If you already have registered, please <Link to="/login">Log In</Link>{" "}
+        here
       </p>
     </div>
   );
