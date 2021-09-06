@@ -1,84 +1,52 @@
-import React, { useState } from "react";
-import { NavLink } from "react-router-dom";
-import "./NavBar.css";
+import React from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
+import {
+  Navbar,
+  Container,
+  Nav,
+  NavDropdown,
+  Button,
+  Row,
+  Col,
+} from "react-bootstrap";
 
-function MainNavBar() {
-  const [click, setClick] = useState(false);
-
-  const handleClick = () => setClick(!click);
+const MainNavBar = () => {
   return (
-    <>
-      <nav className="navbar-new">
-        <div className="nav-container">
-          <NavLink exact to="/" className="nav-logo">
-            MyFamilyLogo
-            <i className="fas fa-code"></i>
-          </NavLink>
-
-          <ul className={click ? "nav-menu active" : "nav-menu"}>
-            <li className="nav-item">
-              <NavLink
-                exact
-                to="/dairy"
-                activeClassName="active"
-                className="nav-links"
-                onClick={handleClick}
-              >
-                Dairy
-              </NavLink>
-            </li>
-            <li className="nav-item">
-              <NavLink
-                exact
-                to="/events"
-                activeClassName="active"
-                className="nav-links"
-                onClick={handleClick}
-              >
-                Events
-              </NavLink>
-            </li>
-            <li className="nav-item">
-              <NavLink
-                exact
-                to="/gallery"
-                activeClassName="active"
-                className="nav-links"
-                onClick={handleClick}
-              >
-                Gallery
-              </NavLink>
-            </li>
-            <li className="nav-item">
-              <NavLink
-                exact
-                to="/invite"
-                activeClassName="active"
-                className="nav-links"
-                onClick={handleClick}
-              >
-              Menu
-              </NavLink>
-            </li>
-            <li className="nav-item">
-              <NavLink
-                exact
-                to="/logout"
-                activeClassName="active"
-                className="nav-links"
-                onClick={handleClick}
-              >
-                Log Out
-              </NavLink>
-            </li>
-          </ul>
-          <div className="nav-icon" onClick={handleClick}>
-            <i className={click ? "fas fa-times" : "fas fa-bars"}></i>
-          </div>
-        </div>
-      </nav>
-    </>
+    <div className="navbar">
+      <Container>
+        <Row>
+          <Navbar bg="light" expand="lg" fixed="top">
+            <Container>
+              <Col xs={8}>
+                <Navbar.Brand href="/">My Family</Navbar.Brand>
+                <Navbar.Toggle aria-controls="basic-navbar-nav" />
+              </Col>
+              <Col xs={4}>
+                <Navbar.Collapse id="basic-navbar-nav">
+                  <Nav className="me-auto">
+                    <Nav.Link href="/">Home</Nav.Link>
+                    <Nav.Link href="/dairy">Dairy</Nav.Link>
+                    <Nav.Link href="/events">Events</Nav.Link>
+                    <Nav.Link href="/gallery">Gallery</Nav.Link>
+                    <Nav.Link href="/signup">Sign Up</Nav.Link>
+                    <NavDropdown title="Menu" id="basic-nav-dropdown">
+                      <NavDropdown.Item href="/settings">
+                        Settings
+                      </NavDropdown.Item>
+                      <NavDropdown.Item href="/invite">Invite</NavDropdown.Item>
+                    </NavDropdown>
+                  </Nav>
+                  <Button variant="outline-secondar" href="/logout">
+                    Log Out
+                  </Button>{" "}
+                </Navbar.Collapse>
+              </Col>
+            </Container>
+          </Navbar>
+        </Row>
+      </Container>
+    </div>
   );
-}
+};
 
 export default MainNavBar;
