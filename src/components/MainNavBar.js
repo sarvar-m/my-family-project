@@ -28,6 +28,7 @@ const MainNavBar = () => {
                     <Nav.Link href="/dairy">Dairy</Nav.Link>
                     <Nav.Link href="/events">Events</Nav.Link>
                     <Nav.Link href="/gallery">Gallery</Nav.Link>
+                    <Nav.Link href="/signup">Sign Up</Nav.Link>
                     <NavDropdown title="Menu" id="basic-nav-dropdown">
                       <NavDropdown.Item href="/settings">
                         Settings

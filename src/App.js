@@ -9,6 +9,8 @@ import Events from "./components/pages/Events";
 import LogOut from "./components/pages/LogOut";
 import Settings from "./components/pages/Settings";
 import Invite from "./components/pages/Invite";
+import SignUp from "./components/pages/SignUp";
+import LogIn from "./components/pages/LogIn";
 
 function App() {
   return (
@@ -22,6 +24,8 @@ function App() {
         <Route path="/logout" component={LogOut} />
         <Route path="/settings" component={Settings} />
         <Route path="/invite" component={Invite} />
+        <Route path="/signup" component={SignUp} />
+        <Route path="/login" component={LogIn} />
       </Switch>
     </Router>
   );
