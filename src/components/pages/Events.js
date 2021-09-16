@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import MainFooter from "../MainFooter";
+import "../Events.css"
 
 class Event extends Component {
     render() {
