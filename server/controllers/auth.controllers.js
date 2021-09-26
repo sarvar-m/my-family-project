@@ -1,28 +1,10 @@
 const User = require("../models/user.model");
 const jwt = require("jsonwebtoken");
+const bcrypt = require("bcrypt");
 // sendgrid
 const sgMail = require("@sendgrid/mail");
 const { cloneWith } = require("lodash");
 sgMail.setApiKey(process.env.SENDGRID_API_KEY);
-
-// exports.signup = async (req, res) => {
-//   try {
-//     const { name, surname, email, password } = req.body;
-//     const user = await User.findOne({ email });
-//     if (user) {
-//       return res.status(400).json({
-//         error: "User with this email already exists.",
-//       });
-//     }
-//     let newUser = await User.create({ name, surname, email, password });
-//     newUser.save();
-//     res.status(200).json("Signup success! Please sign in.");
-//   } catch (err) {
-//     return res.status(400).json({
-//       error: err.message,
-//     });
-//   }
-// };
 
 exports.signup = async (req, res) => {
   try {
@@ -94,6 +76,44 @@ exports.accountActivation = (req, res) => {
   } else {
     return res.status(400).json({
       message: "Something went wrong. Try again.",
+    });
+  }
+};
+
+exports.signin = async (req, res) => {
+  try {
+    const { email, password } = req.body;
+
+    // check if user exist
+    const user = await User.findOne({ email });
+    if (!user) {
+      return res.status(400).json({
+        error: "User with this email does not exist. Please sign up.",
+      });
+    }
+
+    // authenticate
+    const isMatch = await bcrypt.compare(password, user.password);
+    if (!isMatch) {
+      return res.status(400).json({
+        error: "Email and password do not match.",
+      });
+    }
+
+    // generate a token and send to client
+    const token = jwt.sign({ _id: user._id }, process.env.JWT_SECRET, {
+      expiresIn: "7d",
+    });
+
+    const { _id, name, surname, role } = user;
+
+    res.json({
+      token,
+      user: { _id, name, surname, email, role },
+    });
+  } catch (err) {
+    res.status(500).json({
+      error: err.message,
     });
   }
 };
