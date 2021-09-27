@@ -1,5 +1,4 @@
 import React from "react";
-import MainNavbar from "./components/MainNavBar";
 import "./App.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Home from "./components/pages/Home";
@@ -9,13 +8,13 @@ import Events from "./components/pages/Events";
 import LogOut from "./components/pages/LogOut";
 import Settings from "./components/pages/Settings";
 import Invite from "./components/pages/Invite";
-import SignUp from "./components/pages/SignUp";
-import LogIn from "./components/pages/LogIn";
+import SignUp from "./auth/Signup";
+import Signin from "./auth/Signin";
+import Activate from "./auth/Activate";
 
-function App() {
+const App = () => {
   return (
     <Router>
-      <MainNavbar />
       <Switch>
         <Route path="/" exact component={Home} />
         <Route path="/gallery" component={Gallery} />
@@ -25,10 +24,11 @@ function App() {
         <Route path="/settings" component={Settings} />
         <Route path="/invite" component={Invite} />
         <Route path="/signup" component={SignUp} />
-        <Route path="/login" component={LogIn} />
+        <Route path="/signin" component={Signin} />
+        <Route path="/auth/activate/:token" component={Activate} />
       </Switch>
     </Router>
   );
-}
+};
 
 export default App;

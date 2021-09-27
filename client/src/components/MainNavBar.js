@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Fragment } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import {
   Navbar,
@@ -9,8 +9,10 @@ import {
   Row,
   Col,
 } from "react-bootstrap";
+import { isAuth, signout } from "../auth/helpers";
+import { withRouter } from "react-router-dom";
 
-const MainNavBar = () => {
+const MainNavBar = ({ history }) => {
   return (
     <div className="navbar">
       <Container>
@@ -28,7 +30,12 @@ const MainNavBar = () => {
                     <Nav.Link href="/dairy">Dairy</Nav.Link>
                     <Nav.Link href="/events">Events</Nav.Link>
                     <Nav.Link href="/gallery">Gallery</Nav.Link>
-                    <Nav.Link href="/signup">Sign Up</Nav.Link>
+                    {!isAuth() && (
+                      <Fragment>
+                        <Nav.Link href="/signup">Sign Up</Nav.Link>
+                        <Nav.Link href="/signin">Sign In</Nav.Link>
+                      </Fragment>
+                    )}
                     <NavDropdown title="Menu" id="basic-nav-dropdown">
                       <NavDropdown.Item href="/settings">
                         Settings
@@ -36,9 +43,18 @@ const MainNavBar = () => {
                       <NavDropdown.Item href="/invite">Invite</NavDropdown.Item>
                     </NavDropdown>
                   </Nav>
-                  <Button variant="outline-secondar" href="/logout">
-                    Log Out
-                  </Button>{" "}
+                  {isAuth() && (
+                    <Nav.Link>
+                      <span
+                        className="nav-link"
+                        onClick={() => {
+                          signout(() => history.push("/"));
+                        }}
+                      >
+                        Log Out
+                      </span>
+                    </Nav.Link>
+                  )}
                 </Navbar.Collapse>
               </Col>
             </Container>
@@ -49,4 +65,4 @@ const MainNavBar = () => {
   );
 };
 
-export default MainNavBar;
+export default withRouter(MainNavBar);
