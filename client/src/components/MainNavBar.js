@@ -43,8 +43,8 @@ const MainNavBar = ({ history }) => {
                     )}
                     {!isAuth() && (
                       <Fragment>
-                        <Nav.Link href="/signup">Signup</Nav.Link>
-                        <Nav.Link href="/signin">Signin</Nav.Link>
+                        <Nav.Link href="/signup">Sign Up</Nav.Link>
+                        <Nav.Link href="/signin">Sign In</Nav.Link>
                       </Fragment>
                     )}
                     {isAuth() && isAuth().role === "admin" && (

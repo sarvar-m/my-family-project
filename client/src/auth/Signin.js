@@ -87,7 +87,10 @@ const Signin = ({ history }) => {
           to="/auth/password/forgot"
           // className="btn btn-sm btn-outline-danger"
         >
-          <button className="btn btn-danger m-3" onClick={handleSubmit}>
+          <button
+            className="btn btn-danger m-3"
+            onClick={() => <Redirect to="/auth/password/forgot" />}
+          >
             Forgot Password
           </button>
         </Link>
