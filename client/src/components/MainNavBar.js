@@ -59,7 +59,7 @@ const MainNavBar = ({ history }) => {
                       <span
                         className="nav-link"
                         onClick={() => {
-                          signout(() => history.push("/main"));
+                          signout(() => history.push("/"));
                         }}
                       >
                         Signout
