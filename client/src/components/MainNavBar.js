@@ -26,32 +26,43 @@ const MainNavBar = ({ history }) => {
               <Col xs={4}>
                 <Navbar.Collapse id="basic-navbar-nav">
                   <Nav className="me-auto">
-                    <Nav.Link href="/">Home</Nav.Link>
-                    <Nav.Link href="/dairy">Dairy</Nav.Link>
-                    <Nav.Link href="/events">Events</Nav.Link>
-                    <Nav.Link href="/gallery">Gallery</Nav.Link>
+                    {isAuth() && <Nav.Link href="/home">Home</Nav.Link>}
+                    {isAuth() && <Nav.Link href="/dairy">Dairy</Nav.Link>}
+                    {isAuth() && <Nav.Link href="/events">Events</Nav.Link>}
+                    {isAuth() && <Nav.Link href="/gallery">Gallery</Nav.Link>}
+
+                    {isAuth() && (
+                      <NavDropdown title="Menu" id="basic-nav-dropdown">
+                        <NavDropdown.Item href="/settings">
+                          Settings
+                        </NavDropdown.Item>
+                        <NavDropdown.Item href="/invite">
+                          Invite
+                        </NavDropdown.Item>
+                      </NavDropdown>
+                    )}
                     {!isAuth() && (
                       <Fragment>
-                        <Nav.Link href="/signup">Sign Up</Nav.Link>
-                        <Nav.Link href="/signin">Sign In</Nav.Link>
+                        <Nav.Link href="/signup">Signup</Nav.Link>
+                        <Nav.Link href="/signin">Signin</Nav.Link>
                       </Fragment>
                     )}
-                    <NavDropdown title="Menu" id="basic-nav-dropdown">
-                      <NavDropdown.Item href="/settings">
-                        Settings
-                      </NavDropdown.Item>
-                      <NavDropdown.Item href="/invite">Invite</NavDropdown.Item>
-                    </NavDropdown>
+                    {isAuth() && isAuth().role === "admin" && (
+                      <Nav.Link href="/admin">{isAuth().name}_A</Nav.Link>
+                    )}
+                    {isAuth() && isAuth().role === "subscriber" && (
+                      <Nav.Link href="/private">{isAuth().name}</Nav.Link>
+                    )}
                   </Nav>
                   {isAuth() && (
-                    <Nav.Link>
+                    <Nav.Link className="nav-link">
                       <span
                         className="nav-link"
                         onClick={() => {
-                          signout(() => history.push("/"));
+                          signout(() => history.push("/main"));
                         }}
                       >
-                        Log Out
+                        Signout
                       </span>
                     </Nav.Link>
                   )}

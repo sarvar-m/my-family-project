@@ -144,12 +144,12 @@ const Signup = () => {
         <h1 className="p-5 text-center">Sign Up</h1>
         {signupForm()}
         <br />
-        <Link
-          to="/auth/password/forgot"
-          className="btn btn-sm btn-outline-danger"
-        >
-          Forgot Password
-        </Link>
+        <span>
+          Already have an account? Please login{" "}
+          <Link to="/signin" className="btn btn-sm btn-outline-primary">
+            Login
+          </Link>{" "}
+        </span>
       </div>
     </Layout>
   );

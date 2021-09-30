@@ -39,7 +39,10 @@ const Signin = ({ history }) => {
             email: "",
             password: "",
           });
-          toast.success(`Hey ${response.data.user.name}, Welcome back!`);
+          // toast.success(`Hey ${response.data.user.name}, Welcome back!`);
+          isAuth() && isAuth().role === "admin"
+            ? history.push("/admin")
+            : history.push("/private");
         });
       })
       .catch((error) => {
@@ -80,6 +83,14 @@ const Signin = ({ history }) => {
         <button className="btn btn-primary" onClick={handleSubmit}>
           {buttonText}
         </button>
+        <Link
+          to="/auth/password/forgot"
+          // className="btn btn-sm btn-outline-danger"
+        >
+          <button className="btn btn-danger m-3" onClick={handleSubmit}>
+            Forgot Password
+          </button>
+        </Link>
       </div>
     </form>
   );
@@ -91,13 +102,6 @@ const Signin = ({ history }) => {
         {isAuth() ? <Redirect to="/" /> : null}
         <h1 className="p-5 text-center">Sign In</h1>
         {signinForm()}
-        <br />
-        <Link
-          to="/auth/password/forgot"
-          className="btn btn-sm btn-outline-danger"
-        >
-          Forgot Password
-        </Link>
       </div>
     </Layout>
   );
