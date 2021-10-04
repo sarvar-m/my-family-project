@@ -1,0 +1,19 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #ffffff;
+}
+
+.me-auto {
+  font-size: large;
+}
+
+.pages {
+  color: #07151d;
+  text-align: center;
+  font-size: 3.5rem;
+  margin: 100px;
+}
