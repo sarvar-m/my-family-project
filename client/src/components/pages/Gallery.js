@@ -1,10 +1,13 @@
 import React from "react";
+import Layout from "../../core/Layout";
 
 const Gallery = () => {
   return (
-    <div className="pages">
-      <h2>Gallery</h2>
-    </div>
+    <Layout>
+      <div className="pages">
+        <h2>Gallery</h2>
+      </div>
+    </Layout>
   );
 };
 

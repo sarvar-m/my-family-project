@@ -1,10 +1,13 @@
 import React from "react";
+import Layout from "../../core/Layout";
 
 function Invite() {
   return (
-    <div className="pages">
-      <h4>Invite</h4>
-    </div>
+    <Layout>
+      <div className="pages">
+        <h4>Invite</h4>
+      </div>
+    </Layout>
   );
 }
 
